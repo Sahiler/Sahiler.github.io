@@ -1,9 +1,3 @@
-/*
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	var	$window = $(window),
@@ -112,6 +106,13 @@
 
 	// Play initial animations on page load.
 		$window.on('load', function() {
+			var months = ['January','February','March','April','May','June','July',
+			'August','September','October','November','December'];
+			var tomorrow = new Date();
+			tomorrow.setTime(tomorrow.getTime() + (1000*3600));
+			document.getElementById("currDate").innerHTML =
+			months[tomorrow.getMonth()] +
+			 " " + tomorrow.getDate()+ ", " + tomorrow.getFullYear();
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
